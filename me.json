@@ -207,9 +207,9 @@
       },
       "images": {
         "list": [
-          "images/one-remote-home-screen.PNG",
-          "images/one-remote.PNG",
-          "images/one-remote-zoomed.PNG"
+          "images/one-remote-home-screen.png",
+          "images/one-remote.png",
+          "images/one-remote-zoomed.png"
         ],
         "initialIndex": 1
       }
