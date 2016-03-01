@@ -1,0 +1,218 @@
+{
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "MathWorks",
+      "url": "http://www.mathworks.com",
+      "startDate": "Sep, 2010",
+      "endDate": "Present",
+      "duration": "5+ years",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Dojo Toolkit",
+        "Babel",
+        "npm",
+        "ESLint"
+      ],
+      "description": {
+        "text": [
+          "MathWorks is the leading developer of mathematical computing software.",
+          "Engineers and scientists worldwide rely on its products to accelerate the pace of discovery, innovation, and development.",
+          "My work has primarily been focused on MATLAB Online, which is a cloud offering of the MATLAB Desktop software.",
+          "Here are some of the interesting things I've accomplished in my time here:"
+        ],
+        "bullets": [
+          "Worked closely with Usability, Visual Design and Quality Engineering teams to bring the best workflows and innovative features to life.",
+          "Developed numerous infrastructure services and features for the MATLAB Desktop environment.",
+          "Built a core set of reusable widgets for use throughout the development organization in order to facilitate the building of UIs and Apps for various MATLAB Toolboxes.",
+          "Drive the adoption of new web technologies like ES6+, CSS preprocessors etc. to keep the development stack up to date and take advantage of the great new language features.",
+          "Defined the process for contribution to the open source community like the Dojo foundation."
+        ]
+      },
+      "images": {
+        "list": [
+          "images/matlab-one.png",
+          "images/matlab-two.png",
+          "images/matlab-three.png",
+          "images/matlab-four.png"
+        ],
+        "initialIndex": 1
+      }
+    },
+    {
+      "title": "Software Developer",
+      "company": "Florida Museum of Natural History",
+      "url": "http://www.flmnh.ufl.edu",
+      "startDate": "Oct, 2009",
+      "endDate": "Aug, 2010",
+      "duration": "~1 year",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "description": {
+        "text": [
+          "Florida Museum of Natural History is Florida's official state natural history museum and one of the nation’s largest and fastest-growing natural history museums.",
+          "Museum researchers investigate bird extinctions on Pacific islands, document shark attacks worldwide, monitor endangered and threatened species, and explore the genetic codes.",
+          "\n",
+          "My work here was primarily focused on developing an information management and analytical web application, which provides informatics support for phylodiversity and biodiversity research (funded by the National Science Foundation)."
+        ]
+      },
+      "images": {
+        "list": [
+          "images/tolkin-one.png",
+          "images/tolkin-two.png"
+        ]
+      }
+    }
+  ],
+  "skillGroups": [
+    {
+      "name": "Languages",
+      "list": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "Frameworks",
+      "list": [
+        "React",
+        "Dojo Toolkit"
+      ]
+    },
+    {
+      "name": "Preprocessors",
+      "list": [
+        "Stylus",
+        "Autoprefixer"
+      ]
+    },
+    {
+      "name": "Backend",
+      "list": [
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "name": "Tooling",
+      "list": [
+        "Babel",
+        "npm",
+        "webpack",
+        "ESLint"
+      ]
+    },
+    {
+      "name": "Hardware",
+      "list": [
+        "Arduino",
+        "Raspberry Pi"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Pantry Butler",
+      "subTitle": "Rule your kitchen. Plan your meals.",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Babel",
+        "npm",
+        "webpack",
+        "ESLint"
+      ],
+      "description": {
+        "text": [
+          "An app to help you keep track of all the groceries that you buy and plan your meals for the week.",
+          "It can help remind you of all the things sitting at the back of your refrigerator or deep down in the freezer so that you consume them before they go bad."
+        ]
+      },
+      "images": {
+        "list": [
+          "images/pantry-butler-home-screen.png",
+          "images/pantry-butler-signup.png",
+          "images/pantry-butler-verify.png",
+          "images/pantry-butler-login.png",
+          "images/pantry-butler-nav.png",
+          "images/pantry-butler-pantry.png",
+          "images/pantry-butler-fridge.png",
+          "images/pantry-butler-freezer.png",
+          "images/pantry-butler-buy.png",
+          "images/pantry-butler-menu.png",
+          "images/pantry-butler-week.png",
+          "images/pantry-butler-add-buy.png",
+          "images/pantry-butler-update-menu.png",
+          "images/pantry-butler-update-week.png"
+        ],
+        "initialIndex": 5
+      }
+    },
+    {
+      "title": "R.A.M.U.",
+      "subTitle": "Robotic Autonomous Mopping Unit",
+      "skills": [
+        "Arduino"
+      ],
+      "description": {
+        "text": [
+          "A robot powered by an ATMEL ATMEGA328p microprocessor (which is the heart of an arduino).",
+          "It can be fitted with a replaceable swiffer mopping pad and roam around autonomously in your home to clean your floors while you do more important things in life. It has been built from scratch including the circuit, code and body."
+        ]
+      },
+      "images": {
+        "list": [
+          "images/ramu-tools.jpg",
+          "images/ramu-construction-1.jpg",
+          "images/ramu-construction-2.jpg",
+          "images/ramu-construction-3.jpg",
+          "images/ramu-top.jpg",
+          "images/ramu-front.jpg"
+        ],
+        "initialIndex": 4
+      }
+    },
+    {
+      "title": "One Remote",
+      "subTitle": "One remote to rule them all",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "Babel",
+        "Raspberry Pi"
+      ],
+      "description": {
+        "text": [
+          "Do you struggle to find all the various remotes for your TV, streaming device, sound systems?",
+          "Do you use only a handful of the many buttons on all those remotes?",
+          "The one thing you probably have always within reach is your phone, why not use it to replace all the remotes?",
+          "One Remote is an app that is accessible from any device including your smart phones, iPads, laptops etc.",
+          "The server runs on a Raspberry Pi and controls all the devices in your living room."
+        ]
+      },
+      "images": {
+        "list": [
+          "images/one-remote-home-screen.PNG",
+          "images/one-remote.PNG",
+          "images/one-remote-zoomed.PNG"
+        ],
+        "initialIndex": 1
+      }
+    }
+  ]
+}

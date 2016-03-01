@@ -1,0 +1,23 @@
+html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #eee;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 132, 187);
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    border-bottom-color: rgb(0, 132, 187);
+}
