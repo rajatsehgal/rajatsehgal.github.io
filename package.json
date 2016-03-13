@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "A personal web application showcasing who I am and some of my work.",
   "scripts": {
-    "start": "http-server -p 7252 -s .",
-    "packdev": "webpack -d",
-    "packprod": "webpack -p",
-    "packwatch": "webpack --watch -d"
+    "start": "http-server . -s",
+    "build": "webpack -d",
+    "prod": "webpack -p",
+    "watch": "webpack --watch -d"
   },
   "author": "Rajat Sehgal",
   "devDependencies": {

@@ -5,6 +5,7 @@ import colors from '../utils/colors';
 const Social = () => {
   const items = {
     linkedin: 'in/rajatsehgal1988',
+    github: 'rajatsehgal',
     facebook: 'rajat.sehgal',
     twitter: 'rajat_sehgal'
   };
@@ -20,7 +21,7 @@ const Social = () => {
           target="_blank"
           href={`https://www.${key}.com/${items[key]}`}
           style={{
-            fontSize: 24,
+            fontSize: 28,
             borderBottom: 'none',
             textDecoration: 'none',
             color: colors.link,
