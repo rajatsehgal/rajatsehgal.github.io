@@ -4,18 +4,20 @@ import Radium from 'radium';
 import colors from '../utils/colors';
 
 const navigationStyle = {
-  cursor: 'pointer',
   height: 50,
   width: 50,
   lineHeight: '50px',
   textAlign: 'center',
-  position: 'relative',
-  background: colors.carousel.nav.background,
-  ':hover': {
-    color: colors.carousel.nav.text,
-    background: colors.carousel.nav.backgroundHover,
-    opacity: 1
-  }
+  position: 'absolute',
+  top: '50%',
+  transform: 'translate(0, -50%)',
+  background: colors.carousel.nav.background
+};
+
+const hoveredNavigationStyle = {
+  color: colors.carousel.nav.text,
+  background: colors.carousel.nav.backgroundHover,
+  opacity: 1
 };
 
 class Carousel extends Component {
@@ -48,18 +50,34 @@ class Carousel extends Component {
   };
 
   render() {
+    const leftArrowStyle = Radium.getState(this.state, 'left', ':hover') ? hoveredNavigationStyle : {};
+    const rightArrowStyle = Radium.getState(this.state, 'right', ':hover') ? hoveredNavigationStyle : {};
+
     return (
       <div
         style={{
-          display: 'inline-block'
+          display: 'inline-block',
+          position: 'relative'
         }}
       >
-        <i
+        <div
           key="left"
           onClick={this.handleLeftClick}
-          style={{ ...navigationStyle, marginRight: -navigationStyle.width }}
-          className="fa fa-chevron-left"
-        />
+          style={{
+            position: 'absolute',
+            height: '100%',
+            width: '50%',
+            display: 'inline-block',
+            marginRight: '-50%',
+            cursor: 'pointer',
+            ':hover': {}
+          }}
+        >
+          <i
+            style={{ ...navigationStyle, ...leftArrowStyle, left: 0 }}
+            className="fa fa-chevron-left"
+          />
+        </div>
         <img
           style={{
             width: '100%',
@@ -67,12 +85,25 @@ class Carousel extends Component {
           }}
           src={this.props.imageUrls[this.state.index]}
         />
-        <i
+        <div
           key="right"
           onClick={this.handleRightClick}
-          style={{ ...navigationStyle, marginLeft: -navigationStyle.width }}
-          className="fa fa-chevron-right"
-        />
+          style={{
+            position: 'absolute',
+            width: '50%',
+            height: '100%',
+            display: 'inline-block',
+            marginLeft: '-50%',
+            cursor: 'pointer',
+            ':hover': {}
+          }}
+        >
+          <i
+            key="right"
+            style={{ ...navigationStyle, ...rightArrowStyle, right: 0 }}
+            className="fa fa-chevron-right"
+          />
+        </div>
         <div
           style={{
             textAlign: 'center'

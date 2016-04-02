@@ -213,6 +213,35 @@
         ],
         "initialIndex": 1
       }
+    },
+    {
+      "title": "Smart Mirror",
+      "subTitle": "An app that acts as the display for your smart mirror.",
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Babel",
+        "npm",
+        "webpack",
+        "ESLint"
+      ],
+      "description": {
+        "text": [
+          "This app provides a dashboard style display, ideal for a smart mirror.",
+          "It uses your location to display useful information such as date, time, weather, travel time to work, top news headlines etc.",
+          "It pulls in the data from various sources such as Forecast.io, The New York Times etc. by using their APIs."
+        ]
+      },
+      "images": {
+        "list": [
+          "images/smart-mirror-behind-a-mirror.JPG",
+          "images/smart-mirror-dashboard.png",
+          "images/smart-mirror-landing.png"
+        ],
+        "initialIndex": 0
+      }
     }
   ]
 }
