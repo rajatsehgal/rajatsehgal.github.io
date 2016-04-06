@@ -5,39 +5,19 @@ import SkillBar from './SkillBar';
 import Carousel from './Carousel';
 
 const Experience = ({ title, company, url, startDate, endDate, duration, skills, images, description }) =>
-  <div
-    style={{
-      marginTop: 15
-    }}
-  >
-    <div
-      style={{
-        fontSize: 18,
-        textTransform: 'capitalize'
-      }}
-    >
-      <b>{title}</b>,{" "}
-      <img
-        style={{
-          verticalAlign: 'middle',
-          marginRight: 5
-        }}
-        src={icons[company]}
-      />
+  <div style={styles.root}>
+    <div style={styles.header}>
+      <b>{title}</b>, <img style={styles.logo} src={icons[company]}/>
       <a target="_blank" href={url}>{company}</a>
     </div>
-    <div
-      style={{
-        fontSize: 15
-      }}
-    >
+    <div style={styles.subHeader}>
       {startDate} - {endDate} <i className="fa fa-clock-o"/> {duration}
     </div>
     <SkillBar skills={skills}/>
     <div>
       {
         description.text.map((line, i) =>
-          line === '\n' ? <br key={i} /> : <span key={i}>{line} </span>
+          line === '\n' ? <br key={i}/> : <span key={i}>{line} </span>
         )
       }
     </div>
@@ -46,5 +26,22 @@ const Experience = ({ title, company, url, startDate, endDate, duration, skills,
     </ul>
     <Carousel imageUrls={images.list} initialIndex={images.initialIndex}/>
   </div>;
+
+const styles = {
+  root: {
+    marginTop: 15
+  },
+  header: {
+    fontSize: 18,
+    textTransform: 'capitalize'
+  },
+  logo: {
+    verticalAlign: 'middle',
+    marginRight: 5
+  },
+  subHeader: {
+    fontSize: 15
+  }
+};
 
 export default Radium(Experience);

@@ -7,45 +7,40 @@ const Section = ({ title, subTitle, children, headerHeight }) => {
   let subTitleNode;
   if (subTitle) {
     subTitleNode = (
-      <span
-        style={{
-          fontSize: 14,
-          color: colors.muted
-        }}
-      >- {subTitle}</span>
+      <span style={styles.subTitle}>- {subTitle}</span>
     );
   }
 
   return (
-    <div
-      style={{
-        paddingTop: 10
-      }}
-    >
-      <div
-        id={title}
-        style={{
-          height: headerHeight + 10,
-          marginTop: -headerHeight - 10
-        }}
-      ></div>
-      <div
-        style={{
-          fontSize: 22,
-          textTransform: 'capitalize',
-          marginBottom: 20
-        }}
-      ><i className={`fa fa-${icons[title]}`}/> {title} {subTitleNode}
+    <div style={styles.root}>
+      <div id={title}
+           style={{ height: headerHeight + 10, marginTop: -headerHeight - 10 }}></div>
+      <div style={styles.title}>
+        <i className={`fa fa-${icons[title]}`}/> {title} {subTitleNode}
       </div>
       {children}
-      <div
-        style={{
-          borderBottom: `1px solid ${colors.muted}`,
-          margin: '40px 40px 30px 40px'
-        }}
-      />
+      <div style={styles.separator}/>
     </div>
   );
+};
+
+const styles = {
+  root: {
+    paddingTop: 10
+  },
+  title: {
+    fontSize: 22,
+    textTransform: 'capitalize',
+    marginBottom: 20
+  },
+  subTitle: {
+    fontSize: 14,
+    color: colors.muted
+  },
+  separator: {
+    borderBottom: `1px solid ${colors.muted}`,
+    margin: '40px 40px 30px 40px'
+  }
 };
 
 export default Radium(Section);
