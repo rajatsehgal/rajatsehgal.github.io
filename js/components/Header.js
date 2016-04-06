@@ -5,7 +5,7 @@ import colors from '../utils/colors';
 
 const Header = ({ isScrolled }) => {
   const imgSize = isScrolled ? 32 : 100;
-  const links = ['about', 'experience', 'skills', 'projects'];
+  const links = ['about', 'skills', 'experience', 'projects'];
 
   return (
     <div id="header" style={[styles.root, {padding: isScrolled ? 0 : 20}]}>
