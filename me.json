@@ -1,4 +1,53 @@
 {
+  "skillGroups": [
+    {
+      "name": "Languages",
+      "list": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "Frameworks",
+      "list": [
+        "React",
+        "React Native",
+        "Dojo Toolkit"
+      ]
+    },
+    {
+      "name": "Preprocessors",
+      "list": [
+        "Stylus",
+        "Autoprefixer"
+      ]
+    },
+    {
+      "name": "Backend",
+      "list": [
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ]
+    },
+    {
+      "name": "Tooling",
+      "list": [
+        "Babel",
+        "npm",
+        "webpack",
+        "ESLint"
+      ]
+    },
+    {
+      "name": "Hardware",
+      "list": [
+        "Arduino",
+        "Raspberry Pi"
+      ]
+    }
+  ],
   "experience": [
     {
       "title": "Software Engineer",
@@ -67,54 +116,6 @@
           "images/tolkin-two.png"
         ]
       }
-    }
-  ],
-  "skillGroups": [
-    {
-      "name": "Languages",
-      "list": [
-        "HTML",
-        "CSS",
-        "JavaScript"
-      ]
-    },
-    {
-      "name": "Frameworks",
-      "list": [
-        "React",
-        "Dojo Toolkit"
-      ]
-    },
-    {
-      "name": "Preprocessors",
-      "list": [
-        "Stylus",
-        "Autoprefixer"
-      ]
-    },
-    {
-      "name": "Backend",
-      "list": [
-        "Node.js",
-        "Express",
-        "MongoDB"
-      ]
-    },
-    {
-      "name": "Tooling",
-      "list": [
-        "Babel",
-        "npm",
-        "webpack",
-        "ESLint"
-      ]
-    },
-    {
-      "name": "Hardware",
-      "list": [
-        "Arduino",
-        "Raspberry Pi"
-      ]
     }
   ],
   "projects": [
@@ -188,12 +189,9 @@
       "title": "One Remote",
       "subTitle": "One remote to rule them all",
       "skills": [
-        "HTML",
-        "CSS",
-        "JavaScript",
+        "React Native",
         "Node.js",
         "Express",
-        "Babel",
         "Raspberry Pi"
       ],
       "description": {
@@ -201,8 +199,7 @@
           "Do you struggle to find all the various remotes for your TV, streaming device, sound systems?",
           "Do you use only a handful of the many buttons on all those remotes?",
           "The one thing you probably have always within reach is your phone, why not use it to replace all the remotes?",
-          "One Remote is an app that is accessible from any device including your smart phones, iPads, laptops etc.",
-          "The server runs on a Raspberry Pi and controls all the devices in your living room."
+          "One Remote is a native app that runs on your phone, talks to a Raspberry Pi and controls all the devices in your living room."
         ]
       },
       "images": {
