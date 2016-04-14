@@ -5,6 +5,7 @@ import FastClick from 'fastclick';
 import Header from './components/Header';
 import Section from './components/Section';
 import About from './components/About';
+import Quotes from './components/Quotes';
 import Experience from './components/Experience';
 import Social from './components/Social';
 import Project from './components/Project';
@@ -76,6 +77,7 @@ class App extends Component {
           <Section title="about" headerHeight={this.state.headerHeight}>
             <About />
             <Social />
+            <Quotes />
           </Section>
           <Section title="skills" headerHeight={this.state.headerHeight}>
             <Skills skillGroups={me.skillGroups}/>

@@ -1,17 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
+import Link from './Link';
 
 import colors from '../utils/colors';
 
 class Carousel extends Component {
 
   static propTypes = {
-    imageUrls: PropTypes.arrayOf(PropTypes.string),
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
     initialIndex: PropTypes.number
   };
 
   static defaultProps = {
-    imageUrls: [],
     initialIndex: 0
   };
 
@@ -22,19 +22,37 @@ class Carousel extends Component {
 
   handleLeftClick = () => {
     this.setState({
-      index: this.state.index === 0 ? this.props.imageUrls.length - 1 : this.state.index - 1
+      index: this.state.index === 0 ? this.props.items.length - 1 : this.state.index - 1
     });
   };
 
   handleRightClick = () => {
     this.setState({
-      index: this.state.index === this.props.imageUrls.length - 1 ? 0 : this.state.index + 1
+      index: this.state.index === this.props.items.length - 1 ? 0 : this.state.index + 1
     });
   };
 
   render() {
     const leftArrowStyle = Radium.getState(this.state, 'left', ':hover') ? styles.navigationArrowHovered : {};
     const rightArrowStyle = Radium.getState(this.state, 'right', ':hover') ? styles.navigationArrowHovered : {};
+
+    let content = null;
+
+    if (this.props.items[this.state.index].includes('/')) {
+      content = <img style={styles.image} src={this.props.items[this.state.index]}/>;
+    } else {
+      const itemSplit = this.props.items[this.state.index].split('-');
+      const quote = itemSplit[0];
+      const author = itemSplit[1];
+      content = (
+        <div style={styles.quoteBlock}>
+          <div>
+            <div style={styles.quote}>&#8220;</div> {quote} <div style={styles.quote}>&#8221;</div>
+          </div>
+          <div style={styles.author}>-<Link text={author}/></div>
+        </div>
+      );
+    }
 
     return (
       <div style={styles.root}>
@@ -48,10 +66,7 @@ class Carousel extends Component {
             className="fa fa-chevron-left"
           />
         </div>
-        <img
-          style={styles.image}
-          src={this.props.imageUrls[this.state.index]}
-        />
+        {content}
         <div
           key="right"
           onClick={this.handleRightClick}
@@ -64,7 +79,7 @@ class Carousel extends Component {
           />
         </div>
         <div style={styles.bulletsContainer}>
-          {this.props.imageUrls.map((url, i) => (
+          {this.props.items.map((url, i) => (
             <div
               key={i}
               style={[
@@ -89,6 +104,28 @@ const styles = {
   image: {
     width: '100%',
     verticalAlign: 'middle'
+  },
+  quoteBlock: {
+    width: '100%',
+    verticalAlign: 'middle',
+    display: 'inline-block',
+    paddingLeft: 60,
+    paddingRight: 60,
+    boxSizing: 'border-box',
+    lineHeight: '24px',
+    marginBottom: 20
+  },
+  quote: {
+    fontSize: 40,
+    display: 'inline-block',
+    verticalAlign: 'middle'
+  },
+  author: {
+    textAlign: 'right',
+    position: 'absolute',
+    right: 60,
+    zIndex: 1,
+    bottom: 20
   },
   bulletsContainer: {
     textAlign: 'center'

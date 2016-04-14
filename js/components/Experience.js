@@ -24,7 +24,7 @@ const Experience = ({ title, company, url, startDate, endDate, duration, skills,
     <ul>
       {description.bullets ? description.bullets.map((bullet, i) => <li key={i}>{bullet}</li>) : ''}
     </ul>
-    <Carousel imageUrls={images.list} initialIndex={images.initialIndex}/>
+    <Carousel items={images.list} initialIndex={images.initialIndex}/>
   </div>;
 
 const styles = {

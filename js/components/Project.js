@@ -13,7 +13,7 @@ const Project = ({ title, subTitle, description, images, skills, headerHeight })
     <SkillBar skills={skills}/>
     <div>{description.text.join(' ')}</div>
     <div style={styles.carouselContainer}>
-      <Carousel imageUrls={images.list} initialIndex={images.initialIndex}/>
+      <Carousel items={images.list} initialIndex={images.initialIndex}/>
     </div>
   </div>
 );
