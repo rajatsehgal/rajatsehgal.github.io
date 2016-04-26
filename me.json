@@ -187,6 +187,7 @@
     },
     {
       "title": "One Remote",
+      "githubName": "one-remote",
       "subTitle": "One remote to rule them all",
       "skills": [
         "React Native",
@@ -213,6 +214,7 @@
     },
     {
       "title": "Smart Mirror",
+      "githubName": "smart-mirror",
       "subTitle": "An app that acts as the display for your smart mirror.",
       "skills": [
         "HTML",
