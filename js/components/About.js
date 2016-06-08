@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div>
       My name is <span title="Ruh-juht Sai-guhl"><strong>Rajat Sehgal</strong></span>, I am
-      a <strong>Software Engineer</strong>, located in the <Link text="Greater Boston"/> area.
+      a <strong>Senior Software Engineer</strong>, located in the <Link text="Greater Boston"/> area.
       I have been working at <Link text="MathWorks"/> for more than 5 years now. Before that I was
       at <Link text="University of Florida"/>, where I completed
       my <strong>Masters</strong> in <strong>Computer Science</strong> while also working as a
