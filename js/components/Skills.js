@@ -4,29 +4,7 @@ import Radium from 'radium';
 import colors from '../utils/colors';
 import links from '../utils/links';
 
-const Skills = ({ skillGroups }) => (
-  <div>
-    {skillGroups.map((skillGroup, i) =>
-      <div key={skillGroup.name} style={{marginTop: i > 0 ? 15 : 0}}>
-        <div style={styles.name}>{skillGroup.name}</div>
-        {
-          skillGroup.list.map((skill, j) =>
-            <div key={skill}
-                 style={[styles.skill, { marginRight: j < skillGroup.list.length - 1 ? 15 : 0 }]}
-            >
-              <img
-                style={styles.icon}
-                src={`images/${skill}.png`}
-              /><a target="_blank" href={links[skill]}>{skill}</a>
-            </div>
-          )
-        }
-      </div>
-    )}
-  </div>
-);
-
-const styles = {
+const S = {
   name: {
     color: colors.muted,
     textTransform: 'uppercase',
@@ -42,6 +20,37 @@ const styles = {
     display: 'inline-block',
     marginTop: 2
   }
+};
+
+const Skills = ({ skillGroups }) => (
+  <div>
+    {skillGroups.map((skillGroup, i) =>
+      <div key={skillGroup.name} style={{ marginTop: i > 0 ? 15 : 0 }}>
+        <div style={S.name}>{skillGroup.name}</div>
+        {
+          skillGroup.list.map((skill, j) =>
+            <div
+              key={skill}
+              style={[S.skill, { marginRight: j < skillGroup.list.length - 1 ? 15 : 0 }]}
+            >
+              <img
+                role="presentation"
+                style={S.icon}
+                src={`images/${skill}.png`}
+              /><a rel="noopener noreferrer" target="_blank" href={links[skill]}>{skill}</a>
+            </div>
+          )
+        }
+      </div>
+    )}
+  </div>
+);
+
+Skills.propTypes = {
+  skillGroups: React.PropTypes.arrayOf(React.PropTypes.shape({
+    name: React.PropTypes.string,
+    list: React.PropTypes.arrayOf(React.PropTypes.string)
+  }))
 };
 
 export default Radium(Skills);

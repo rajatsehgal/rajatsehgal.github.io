@@ -1,17 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 
-const SkillBar = ({ skills = [] }) => (
-  <div style={styles.root}>
-    {
-      skills.map(skill =>
-        <img style={styles.icon} key={skill} title={skill} src={`images/${skill}.png`}/>
-      )
-    }
-  </div>
-);
-
-const styles = {
+const S = {
   root: {
     paddingTop: 5,
     paddingBottom: 5
@@ -22,6 +12,20 @@ const styles = {
     marginRight: 5,
     verticalAlign: 'middle'
   }
+};
+
+const SkillBar = ({ skills = [] }) => (
+  <div style={S.root}>
+    {
+      skills.map(skill =>
+        <img role="presentation" style={S.icon} key={skill} title={skill} src={`images/${skill}.png`} />
+      )
+    }
+  </div>
+);
+
+SkillBar.propTypes = {
+  skills: React.PropTypes.arrayOf(React.PropTypes.string)
 };
 
 export default Radium(SkillBar);

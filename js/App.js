@@ -5,14 +5,15 @@ import FastClick from 'fastclick';
 import Header from './components/Header';
 import Section from './components/Section';
 import About from './components/About';
-import Quotes from './components/Quotes';
+import Carousel from './components/Carousel';
 import Experience from './components/Experience';
 import Social from './components/Social';
 import Project from './components/Project';
 import Skills from './components/Skills';
 import me from '../me.json';
 
-let scrollTimeout, resizeTimeout;
+let scrollTimeout;
+let resizeTimeout;
 let bodyWidth = document.body.getBoundingClientRect().width;
 
 class App extends Component {
@@ -64,7 +65,7 @@ class App extends Component {
   render() {
     return (
       <StyleRoot>
-        <Header isScrolled={this.state.isScrolled}/>
+        <Header isScrolled={this.state.isScrolled} />
         <div
           id="content"
           style={{
@@ -77,10 +78,10 @@ class App extends Component {
           <Section title="about" headerHeight={this.state.headerHeight}>
             <About />
             <Social />
-            <Quotes />
+            <Carousel items={me.quotes} />
           </Section>
           <Section title="skills" headerHeight={this.state.headerHeight}>
-            <Skills skillGroups={me.skillGroups}/>
+            <Skills skillGroups={me.skillGroups} />
           </Section>
           <Section title="experience" headerHeight={this.state.headerHeight}>
             {me.experience.map((exp, i) => <Experience key={i} {...exp} />)}

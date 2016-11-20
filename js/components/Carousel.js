@@ -4,99 +4,7 @@ import Link from './Link';
 
 import colors from '../utils/colors';
 
-class Carousel extends Component {
-
-  static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.string).isRequired,
-    initialIndex: PropTypes.number
-  };
-
-  static defaultProps = {
-    initialIndex: 0
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = { index: props.initialIndex };
-  }
-
-  handleLeftClick = () => {
-    this.setState({
-      index: this.state.index === 0 ? this.props.items.length - 1 : this.state.index - 1
-    });
-  };
-
-  handleRightClick = () => {
-    this.setState({
-      index: this.state.index === this.props.items.length - 1 ? 0 : this.state.index + 1
-    });
-  };
-
-  render() {
-    const leftArrowStyle = Radium.getState(this.state, 'left', ':hover') ? styles.navigationArrowHovered : {};
-    const rightArrowStyle = Radium.getState(this.state, 'right', ':hover') ? styles.navigationArrowHovered : {};
-
-    let content = null;
-
-    if (this.props.items[this.state.index].includes('/')) {
-      content = <img style={styles.image} src={this.props.items[this.state.index]}/>;
-    } else {
-      const itemSplit = this.props.items[this.state.index].split('-');
-      const quote = itemSplit[0];
-      const author = itemSplit[1];
-      content = (
-        <div style={styles.quoteBlock}>
-          <div>
-            <div style={styles.quote}>&#8220;</div> {quote} <div style={styles.quote}>&#8221;</div>
-          </div>
-          <div style={styles.author}>-<Link text={author}/></div>
-        </div>
-      );
-    }
-
-    return (
-      <div style={styles.root}>
-        <div
-          key="left"
-          onClick={this.handleLeftClick}
-          style={[styles.navigation, styles.navigationLeft]}
-        >
-          <i
-            style={[styles.navigationArrow, leftArrowStyle, styles.navigationArrowLeft]}
-            className="fa fa-chevron-left"
-          />
-        </div>
-        {content}
-        <div
-          key="right"
-          onClick={this.handleRightClick}
-          style={[styles.navigation, styles.navigationRight]}
-        >
-          <i
-            key="right"
-            style={[styles.navigationArrow, rightArrowStyle, styles.navigationArrowRight]}
-            className="fa fa-chevron-right"
-          />
-        </div>
-        <div style={styles.bulletsContainer}>
-          {this.props.items.map((url, i) => (
-            <div
-              key={i}
-              style={[
-                styles.bullet, {
-                    background: i === this.state.index ? colors.text : colors.muted,
-                    marginLeft: i > 0 ? 5 : 0
-                }
-              ]}
-            ></div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-}
-
-const styles = {
+const S = {
   root: {
     display: 'inline-block',
     position: 'relative'
@@ -142,7 +50,12 @@ const styles = {
     width: '50%',
     display: 'inline-block',
     cursor: 'pointer',
-    ':hover': {}
+    ':hover': {},
+    background: 'none',
+    border: 'none',
+    padding: 0,
+    outline: 'none',
+    '-webkit-appearance': 'none'
   },
   navigationLeft: {
     marginRight: '-50%'
@@ -172,5 +85,97 @@ const styles = {
     opacity: 1
   }
 };
+
+class Carousel extends Component {
+
+  static propTypes = {
+    items: PropTypes.arrayOf(PropTypes.string).isRequired,
+    initialIndex: PropTypes.number
+  };
+
+  static defaultProps = {
+    initialIndex: 0
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = { index: props.initialIndex };
+  }
+
+  handleLeftClick = () => {
+    this.setState({
+      index: this.state.index === 0 ? this.props.items.length - 1 : this.state.index - 1
+    });
+  };
+
+  handleRightClick = () => {
+    this.setState({
+      index: this.state.index === this.props.items.length - 1 ? 0 : this.state.index + 1
+    });
+  };
+
+  render() {
+    const leftArrowStyle = Radium.getState(this.state, 'left', ':hover') ? S.navigationArrowHovered : {};
+    const rightArrowStyle = Radium.getState(this.state, 'right', ':hover') ? S.navigationArrowHovered : {};
+
+    let content = null;
+
+    if (this.props.items[this.state.index].includes('/')) {
+      content = <img role="presentation" style={S.image} src={this.props.items[this.state.index]} />;
+    } else {
+      const itemSplit = this.props.items[this.state.index].split('-');
+      const quote = itemSplit[0];
+      const author = itemSplit[1];
+      content = (
+        <div style={S.quoteBlock}>
+          <div>
+            <div style={S.quote}>&#8220;</div> {quote} <div style={S.quote}>&#8221;</div>
+          </div>
+          <div style={S.author}>-<Link>{author}</Link></div>
+        </div>
+      );
+    }
+
+    return (
+      <div style={S.root}>
+        <button
+          key="left"
+          onClick={this.handleLeftClick}
+          style={[S.navigation, S.navigationLeft]}
+        >
+          <i
+            style={[S.navigationArrow, leftArrowStyle, S.navigationArrowLeft]}
+            className="fa fa-chevron-left"
+          />
+        </button>
+        {content}
+        <button
+          key="right"
+          onClick={this.handleRightClick}
+          style={[S.navigation, S.navigationRight]}
+        >
+          <i
+            key="right"
+            style={[S.navigationArrow, rightArrowStyle, S.navigationArrowRight]}
+            className="fa fa-chevron-right"
+          />
+        </button>
+        <div style={S.bulletsContainer}>
+          {this.props.items.map((url, i) => (
+            <div
+              key={i}
+              style={[
+                S.bullet, {
+                  background: i === this.state.index ? colors.text : colors.muted,
+                  marginLeft: i > 0 ? 5 : 0
+                }
+              ]}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Radium(Carousel);

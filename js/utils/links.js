@@ -1,7 +1,7 @@
 const links = {
   // About
   'Greater Boston': 'https://en.wikipedia.org/wiki/Greater_Boston',
-  'MathWorks': 'http://www.mathworks.com/',
+  MathWorks: 'http://www.mathworks.com/',
   'University of Florida': 'http://www.ufl.edu/',
   'Florida Museum of Natural History': 'http://www.flmnh.ufl.edu/',
   'New Delhi': 'https://en.wikipedia.org/wiki/New_Delhi',

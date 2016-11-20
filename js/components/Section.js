@@ -3,28 +3,7 @@ import Radium from 'radium';
 import colors from '../utils/colors';
 import icons from '../utils/icons';
 
-const Section = ({ title, subTitle, children, headerHeight }) => {
-  let subTitleNode;
-  if (subTitle) {
-    subTitleNode = (
-      <span style={styles.subTitle}>- {subTitle}</span>
-    );
-  }
-
-  return (
-    <div style={styles.root}>
-      <div id={title}
-           style={{ height: headerHeight + 10, marginTop: -headerHeight - 10 }}></div>
-      <div style={styles.title}>
-        <i className={`fa fa-${icons[title]}`}/> {title} {subTitleNode}
-      </div>
-      {children}
-      <div style={styles.separator}/>
-    </div>
-  );
-};
-
-const styles = {
+const S = {
   root: {
     paddingTop: 10
   },
@@ -41,6 +20,36 @@ const styles = {
     borderBottom: `1px solid ${colors.muted}`,
     margin: '40px 40px 30px 40px'
   }
+};
+
+const Section = ({ title, subTitle, children, headerHeight }) => {
+  let subTitleNode;
+  if (subTitle) {
+    subTitleNode = (
+      <span style={S.subTitle}>- {subTitle}</span>
+    );
+  }
+
+  return (
+    <div style={S.root}>
+      <div
+        id={title}
+        style={{ height: headerHeight + 10, marginTop: -headerHeight - 10 }}
+      />
+      <div style={S.title}>
+        <i className={`fa fa-${icons[title]}`} /> {title} {subTitleNode}
+      </div>
+      {children}
+      <div style={S.separator} />
+    </div>
+  );
+};
+
+Section.propTypes = {
+  title: React.PropTypes.string,
+  subTitle: React.PropTypes.string,
+  children: React.PropTypes.children,
+  headerHeight: React.PropTypes.number
 };
 
 export default Radium(Section);
