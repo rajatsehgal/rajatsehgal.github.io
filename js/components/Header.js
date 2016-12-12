@@ -1,71 +1,72 @@
 import React from 'react';
 import Radium from 'radium';
+import { Link } from 'react-router';
 
 import colors from '../utils/colors';
+import icons from '../utils/icons';
+
+const RadiumLink = Radium(Link);
 
 const S = {
   root: {
-    background: colors.header.background,
     color: colors.header.text,
     textAlign: 'center',
+    background: colors.header.background,
     position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
     transform: 'translate3d(0, 0, 0)',
-    zIndex: 2
+    zIndex: 2,
+    padding: 10,
+    '@media print': {
+      display: 'none'
+    }
   },
-  image: {
-    borderRadius: '50%',
-    verticalAlign: 'middle'
-  },
-  mainContent: {
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    margin: 15
-  },
-  name: {
-    fontSize: 24,
-    marginBottom: 20
+  container: {
+    display: 'flex',
+    maxWidth: 800,
+    margin: '0 auto'
   },
   link: {
+    flexGrow: 1,
+    display: 'inline-block',
+    textTransform: 'capitalize',
     textDecoration: 'none',
     color: colors.header.link,
     verticalAlign: 'middle',
     ':hover': {
       color: colors.header.text,
-      borderBottom: `1px solid ${colors.header.text}`
+      borderBottom: 'none'
+    },
+    '@media (max-width: 600px)': {
+      fontSize: 24
+    }
+  },
+  linkActive: {
+    color: 'white'
+  },
+  text: {
+    '@media (max-width: 600px)': {
+      display: 'none'
     }
   }
 };
 
-const Header = ({ isScrolled }) => {
-  const imgSize = isScrolled ? 32 : 100;
-  const links = ['about', 'skills', 'experience', 'projects'];
+const Header = () => {
+  const links = ['about', 'experience', 'skills', 'education', 'projects', 'resume'];
 
   return (
-    <div id="header" style={[S.root, { padding: isScrolled ? 0 : 20 }]}>
-      <img
-        role="presentation"
-        src="images/me-blur.jpg"
-        style={[S.image, { width: imgSize, height: imgSize }]}
-      />
-      <div style={S.mainContent}>
-        <div style={[S.name, { display: isScrolled ? 'none' : 'block' }]}>Rajat Sehgal</div>
-        <div>
-          {links.map((link, i) =>
-            <a key={link} href={`#${link}`} style={[S.link, { marginLeft: i > 0 ? 15 : 0 }]}>
-              {link[0].toUpperCase() + link.slice(1)}
-            </a>
-          )}
-        </div>
+    <div id="header" style={S.root}>
+      <div style={S.container}>
+        {links.map(link =>
+          <RadiumLink to={link} style={S.link} activeStyle={S.linkActive}>
+            <i className={`fa fa-${icons[link]}`} /> <span style={S.text}>{link}</span>
+          </RadiumLink>
+        )}
       </div>
     </div>
   );
-};
-
-Header.propTypes = {
-  isScrolled: React.PropTypes.bool
 };
 
 export default Radium(Header);

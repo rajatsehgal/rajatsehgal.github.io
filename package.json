@@ -37,6 +37,8 @@
     "radium": "latest",
     "react": "latest",
     "react-addons-css-transition-group": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router": "latest",
+    "history": "3.2.1"
   }
 }

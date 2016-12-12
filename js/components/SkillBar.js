@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Radium from 'radium';
 
 const S = {
@@ -25,7 +25,7 @@ const SkillBar = ({ skills = [] }) => (
 );
 
 SkillBar.propTypes = {
-  skills: React.PropTypes.arrayOf(React.PropTypes.string)
+  skills: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default Radium(SkillBar);

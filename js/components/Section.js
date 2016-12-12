@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Radium from 'radium';
 import colors from '../utils/colors';
 import icons from '../utils/icons';
 
 const S = {
-  root: {
-    paddingTop: 10
-  },
   title: {
-    fontSize: 22,
+    fontSize: '13pt',
     textTransform: 'capitalize',
-    marginBottom: 20
+    margin: '30px 0 10px 0'
   },
   subTitle: {
-    fontSize: 14,
+    fontSize: '12pt',
     color: colors.muted
   },
   separator: {
@@ -22,7 +19,7 @@ const S = {
   }
 };
 
-const Section = ({ title, subTitle, children, headerHeight }) => {
+const Section = ({ title, subTitle, children, resumeMode }) => {
   let subTitleNode;
   if (subTitle) {
     subTitleNode = (
@@ -31,25 +28,21 @@ const Section = ({ title, subTitle, children, headerHeight }) => {
   }
 
   return (
-    <div style={S.root}>
-      <div
-        id={title}
-        style={{ height: headerHeight + 10, marginTop: -headerHeight - 10 }}
-      />
+    <div>
       <div style={S.title}>
         <i className={`fa fa-${icons[title]}`} /> {title} {subTitleNode}
       </div>
       {children}
-      <div style={S.separator} />
+      <div style={[S.separator, { display: resumeMode ? 'none' : null }]} />
     </div>
   );
 };
 
 Section.propTypes = {
-  title: React.PropTypes.string,
-  subTitle: React.PropTypes.string,
-  children: React.PropTypes.children,
-  headerHeight: React.PropTypes.number
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  children: PropTypes.children,
+  resumeMode: PropTypes.bool
 };
 
 export default Radium(Section);

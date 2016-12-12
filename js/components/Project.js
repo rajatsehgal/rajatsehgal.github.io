@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Radium from 'radium';
 import colors from '../utils/colors';
 import Carousel from './Carousel';
 import SkillBar from './SkillBar';
 
 const S = {
-  root: {
-    marginTop: 20
-  },
   title: {
-    fontSize: 22,
+    fontSize: '12pt',
+    fontWeight: 'bold',
     textTransform: 'capitalize'
   },
   subTitle: {
-    fontSize: 16,
     color: colors.muted
   },
   carouselContainer: {
@@ -21,7 +18,7 @@ const S = {
     marginTop: 5
   },
   link: {
-    fontSize: 28,
+    fontSize: '11pt',
     borderBottom: 'none',
     textDecoration: 'none',
     color: colors.link,
@@ -29,12 +26,12 @@ const S = {
   }
 };
 
-const Project = ({ title, subTitle, description, images, skills, headerHeight, githubName }) => {
+const Project = ({ title, subTitle, description, images, skills, githubName, resumeMode }) => {
   const link = githubName ? (<a
     rel="noopener noreferrer"
     target="_blank"
     href={`https://github.com/rajatsehgal/${githubName}`}
-    style={S.link}
+    style={[S.link, { display: resumeMode ? 'none' : null }]}
   >
     <i className={'fa fa-github'} />
   </a>) : null;
@@ -42,13 +39,13 @@ const Project = ({ title, subTitle, description, images, skills, headerHeight, g
     <div style={S.root}>
       <div
         id={title.replace(/\./g, '')}
-        style={{ height: headerHeight + 10, marginTop: -headerHeight - 10 }}
       />
-      <div><span style={S.title}>{title}</span>{link}</div>
-      <div style={S.subTitle}>{subTitle}</div>
-      <SkillBar skills={skills} />
+      <div><span style={S.title}>{title}</span>{link} - <span style={S.subTitle}>{subTitle}</span></div>
+      <div style={{ display: resumeMode ? 'none' : null }}>
+        <SkillBar skills={skills} />
+      </div>
       <div>{description.text.join(' ')}</div>
-      <div style={S.carouselContainer}>
+      <div style={[S.carouselContainer, { display: resumeMode ? 'none' : null }]}>
         <Carousel items={images.list} initialIndex={images.initialIndex} />
       </div>
     </div>
@@ -56,16 +53,16 @@ const Project = ({ title, subTitle, description, images, skills, headerHeight, g
 };
 
 Project.propTypes = {
-  title: React.PropTypes.string,
-  subTitle: React.PropTypes.string,
-  description: React.PropTypes.string,
-  images: React.PropTypes.arrayOf(React.PropTypes.shape({
-    list: React.PropTypes.arrayOf(React.PropTypes.string),
-    initialIndex: React.PropTypes.number
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  description: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    list: PropTypes.arrayOf(PropTypes.string),
+    initialIndex: PropTypes.number
   })),
-  skills: React.PropTypes.arrayOf(React.PropTypes.string),
-  headerHeight: React.PropTypes.number,
-  githubName: React.PropTypes.string
+  skills: PropTypes.arrayOf(PropTypes.string),
+  githubName: PropTypes.string,
+  resumeMode: PropTypes.bool
 };
 
 export default Radium(Project);

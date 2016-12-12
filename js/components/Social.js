@@ -7,7 +7,7 @@ const S = {
     margin: '15px 0'
   },
   link: {
-    fontSize: 28,
+    fontSize: '16pt',
     borderBottom: 'none',
     textDecoration: 'none',
     color: colors.link

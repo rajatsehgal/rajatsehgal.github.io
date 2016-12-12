@@ -1,9 +1,10 @@
 html {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
-    background: #eee;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 11pt;
+    line-height: 14pt;
+    background: white;
+    text-align: justify;
 }
 
 html,
@@ -14,10 +15,26 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(0, 132, 187);
     border-bottom: 1px solid transparent;
 }
 
 a:hover {
     border-bottom-color: rgb(0, 132, 187);
+}
+
+@media screen {
+    a {
+        color: rgb(0, 132, 187);
+    }
+}
+
+@media print {
+    a {
+        color: inherit;        
+        border-bottom: none;
+    }
+
+    @page {
+        margin: 0
+    }
 }

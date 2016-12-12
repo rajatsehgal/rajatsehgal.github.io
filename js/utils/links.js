@@ -3,6 +3,7 @@ const links = {
   'Greater Boston': 'https://en.wikipedia.org/wiki/Greater_Boston',
   MathWorks: 'http://www.mathworks.com/',
   'University of Florida': 'http://www.ufl.edu/',
+  'Jaypee Institute of Information Technology': 'https://en.wikipedia.org/wiki/Jaypee_Institute_of_Information_Technology',
   'Florida Museum of Natural History': 'http://www.flmnh.ufl.edu/',
   'New Delhi': 'https://en.wikipedia.org/wiki/New_Delhi',
 

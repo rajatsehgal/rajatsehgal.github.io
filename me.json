@@ -55,7 +55,7 @@
       "url": "http://www.mathworks.com",
       "startDate": "Sep, 2010",
       "endDate": "Present",
-      "duration": "5+ years",
+      "duration": "6+ years",
       "skills": [
         "HTML",
         "CSS",
@@ -73,11 +73,12 @@
           "Here are some of the interesting things I've accomplished in my time here:"
         ],
         "bullets": [
-          "Worked closely with Usability, Visual Design and Quality Engineering teams to bring the best workflows and innovative features to life.",
-          "Developed numerous infrastructure services and features for the MATLAB Desktop environment.",
-          "Built a core set of reusable widgets for use throughout the development organization in order to facilitate the building of UIs and Apps for various MATLAB Toolboxes.",
-          "Drive the adoption of new web technologies like ES6+, CSS preprocessors etc. to keep the development stack up to date and take advantage of the great new language features.",
-          "Defined the process for contribution to the open source community like the Dojo foundation."
+          "Developed MATLAB Online, a cloud offering of the MATLAB Desktop software.",
+          "Partnered with Usability, Visual Design and Quality Engineering to bring innovative features to life.",
+          "Developed numerous infrastructure services and features for MATLAB Desktop environment.",
+          "Created a core set of reusable widgets for MathWorks to facilitate App building for MATLAB Toolboxes.",
+          "Drive adoption of new web technologies like ES6+, CSS preprocessors etc. to keep development stack up to date and take advantage of new platform features.",
+          "Defined the process for MathWorks' contribution to  open source community like Dojo foundation."
         ]
       },
       "images": {
@@ -105,9 +106,10 @@
       "description": {
         "text": [
           "Florida Museum of Natural History is Florida's official state natural history museum and one of the nation’s largest and fastest-growing natural history museums.",
-          "Museum researchers investigate bird extinctions on Pacific islands, document shark attacks worldwide, monitor endangered and threatened species, and explore the genetic codes.",
-          "\n",
-          "My work here was primarily focused on developing an information management and analytical web application, which provides informatics support for phylodiversity and biodiversity research (funded by the National Science Foundation)."
+          "Museum researchers investigate bird extinctions on Pacific islands, document shark attacks worldwide, monitor endangered and threatened species, and explore the genetic codes."
+        ],
+        "bullets": [
+          "Developed an information management and analytical web application, which provides informatics support for phylodiversity and biodiversity research."
         ]
       },
       "images": {
@@ -116,6 +118,22 @@
           "images/tolkin-two.png"
         ]
       }
+    }
+  ],
+  "education": [
+    {
+      "degree": "Masters in Computer Science",
+      "school": "University of Florida",
+      "startDate": "Jan, 2009",
+      "endDate": "Dec, 2010",
+      "duration": "2 years"
+    },
+    {
+      "degree": "Bachelors in Computer Science",
+      "school": "Jaypee Institute of Information Technology",
+      "startDate": "Aug, 2005",
+      "endDate": "May, 2009",
+      "duration": "4 years"
     }
   ],
   "projects": [
@@ -137,8 +155,7 @@
       ],
       "description": {
         "text": [
-          "An app to help you keep track of all the groceries that you buy and plan your meals for the week.",
-          "It can help remind you of all the things sitting at the back of your refrigerator or deep down in the freezer so that you consume them before they go bad."
+          "An app to help you keep track of all the groceries and plan your meals for the week."
         ]
       },
       "images": {
@@ -169,8 +186,8 @@
       ],
       "description": {
         "text": [
-          "A robot powered by an ATMEL ATMEGA328p microprocessor (which is the heart of an arduino).",
-          "It can be fitted with a replaceable swiffer mopping pad and roam around autonomously in your home to clean your floors while you do more important things in life. It has been built from scratch including the circuit, code and body."
+          "A mopping robot built from scratch, powered by a microprocessor.",
+          "It can be fitted with a replaceable swiffer mopping pad and roam around autonomously in your home to clean your floors while you do more important things in life."
         ]
       },
       "images": {
@@ -197,10 +214,7 @@
       ],
       "description": {
         "text": [
-          "Do you struggle to find all the various remotes for your TV, streaming device, sound systems?",
-          "Do you use only a handful of the many buttons on all those remotes?",
-          "The one thing you probably have always within reach is your phone, why not use it to replace all the remotes?",
-          "One Remote is a native app that runs on your phone, talks to a Raspberry Pi and controls all the devices in your living room."
+          "One Remote is an app for your phone, talks to a Raspberry Pi and controls all the devices in your living room. It allows you to use commonly used buttons through the app, eliminating the need to manage multiple remotes."
         ]
       },
       "images": {
@@ -229,8 +243,7 @@
       "description": {
         "text": [
           "This app provides a dashboard style display, ideal for a smart mirror.",
-          "It uses your location to display useful information such as date, time, weather, travel time to work, top news headlines etc.",
-          "It pulls in the data from various sources such as Forecast.io, The New York Times etc. by using their APIs."
+          "Displays useful information such as date, time, weather, travel time to work, top news headlines etc., pulls in the data from various APIs."
         ]
       },
       "images": {

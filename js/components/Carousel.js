@@ -7,7 +7,8 @@ import colors from '../utils/colors';
 const S = {
   root: {
     display: 'inline-block',
-    position: 'relative'
+    position: 'relative',
+    marginTop: 10
   },
   image: {
     width: '100%',
