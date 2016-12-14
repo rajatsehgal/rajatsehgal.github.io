@@ -30236,7 +30236,7 @@
 	            style: {
 	              maxWidth: 800,
 	              padding: '0 50px',
-	              marginTop: page === 'resume' ? 40 : 50,
+	              marginTop: page === 'resume' ? 40 : 60,
 	              boxSizing: 'border-box',
 	              marginLeft: 'auto',
 	              marginRight: 'auto',
@@ -32016,9 +32016,9 @@
 					"bullets": [
 						"Developed MATLAB Online, a cloud offering of the MATLAB Desktop software.",
 						"Partnered with Usability, Visual Design and Quality Engineering to bring innovative features to life.",
-						"Developed numerous infrastructure services and features for MATLAB Desktop environment.",
+						"Built numerous infrastructure services and features for MATLAB Desktop environment.",
 						"Created a core set of reusable widgets for MathWorks to facilitate App building for MATLAB Toolboxes.",
-						"Drive adoption of new web technologies like ES6+, CSS preprocessors etc. to keep development stack up to date and take advantage of new platform features.",
+						"Drive adoption of new web technologies like ES6+, Web Components etc. to keep development stack up to date and take advantage of new platform features.",
 						"Defined the process for MathWorks' contribution to  open source community like Dojo foundation."
 					]
 				},
@@ -32432,7 +32432,7 @@
 	var S = {
 	  name: {
 	    color: _colors2.default.muted,
-	    textTransform: 'uppercase'
+	    fontWeight: 'bold'
 	  },
 	  icon: {
 	    width: 24,
@@ -32842,7 +32842,7 @@
 	    marginTop: 60,
 	    position: 'relative',
 	    '@media print': {
-	      marginTop: 0
+	      marginTop: 20
 	    }
 	  },
 	  name: {

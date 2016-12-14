@@ -21,7 +21,7 @@ class App extends Component {
           style={{
             maxWidth: 800,
             padding: '0 50px',
-            marginTop: page === 'resume' ? 40 : 50,
+            marginTop: page === 'resume' ? 40 : 60,
             boxSizing: 'border-box',
             marginLeft: 'auto',
             marginRight: 'auto',

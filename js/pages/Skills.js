@@ -9,7 +9,7 @@ import me from '../../me.json';
 const S = {
   name: {
     color: colors.muted,
-    textTransform: 'uppercase'
+    fontWeight: 'bold'
   },
   icon: {
     width: 24,

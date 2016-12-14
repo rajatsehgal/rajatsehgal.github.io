@@ -18,7 +18,7 @@ const S = {
     marginTop: 60,
     position: 'relative',
     '@media print': {
-      marginTop: 0
+      marginTop: 20
     }
   },
   name: {
