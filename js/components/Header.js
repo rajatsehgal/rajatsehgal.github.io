@@ -35,12 +35,13 @@ const S = {
     textDecoration: 'none',
     color: colors.header.link,
     verticalAlign: 'middle',
+    fontSize: '11pt',
     ':hover': {
       color: colors.header.text,
       borderBottom: 'none'
     },
     '@media (max-width: 600px)': {
-      fontSize: 24
+      fontSize: '12pt'
     }
   },
   linkActive: {

@@ -31179,12 +31179,13 @@
 	    textDecoration: 'none',
 	    color: _colors2.default.header.link,
 	    verticalAlign: 'middle',
+	    fontSize: '11pt',
 	    ':hover': {
 	      color: _colors2.default.header.text,
 	      borderBottom: 'none'
 	    },
 	    '@media (max-width: 600px)': {
-	      fontSize: 24
+	      fontSize: '12pt'
 	    }
 	  },
 	  linkActive: {
@@ -32096,7 +32097,7 @@
 				],
 				"description": {
 					"text": [
-						"An app to help you keep track of all the groceries and plan your meals for the week."
+						"A responsive web app built using ReactJS to help you keep track of all the groceries and plan your meals for the week."
 					]
 				},
 				"images": {
@@ -32155,7 +32156,7 @@
 				],
 				"description": {
 					"text": [
-						"One Remote is an app for your phone, talks to a Raspberry Pi and controls all the devices in your living room. It allows you to use commonly used buttons through the app, eliminating the need to manage multiple remotes."
+						"An app built using React Native that talks to a Raspberry Pi and controls all the devices in your living room, eliminating the need to manage multiple remotes."
 					]
 				},
 				"images": {
