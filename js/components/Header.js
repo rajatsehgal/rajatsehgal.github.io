@@ -1,73 +1,106 @@
-import React from 'react';
-import Radium from 'radium';
-import { Link } from 'react-router';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import colors from '../utils/colors.js';
 
-import colors from '../utils/colors';
-import icons from '../utils/icons';
-
-const RadiumLink = Radium(Link);
-
-const S = {
-  root: {
-    color: colors.header.text,
-    textAlign: 'center',
-    background: colors.header.background,
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    transform: 'translate3d(0, 0, 0)',
-    zIndex: 2,
-    padding: 10,
-    '@media print': {
-      display: 'none'
-    }
-  },
-  container: {
-    display: 'flex',
-    maxWidth: 800,
-    margin: '0 auto'
-  },
-  link: {
-    flexGrow: 1,
-    display: 'inline-block',
-    textTransform: 'capitalize',
-    textDecoration: 'none',
-    color: colors.header.link,
-    verticalAlign: 'middle',
-    fontSize: '11pt',
-    ':hover': {
-      color: colors.header.text,
-      borderBottom: 'none'
-    },
-    '@media (max-width: 600px)': {
-      fontSize: '12pt'
-    }
-  },
-  linkActive: {
-    color: 'white'
-  },
-  text: {
-    '@media (max-width: 600px)': {
-      display: 'none'
-    }
+class Header extends LitElement {
+  static get properties () {
+    return {
+      text: { type: String }
+    };
   }
-};
 
-const Header = () => {
-  const links = ['about', 'experience', 'skills', 'education', 'projects', 'resume'];
+  static get styles () {
+    return css`
+    :host {
+      display: block;
+      color: ${colors.header.text};
+      text-align: center;
+      background: ${colors.header.background};
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: translate3d(0, 0, 0);
+      z-index: 2;
+      padding: 10px;
+    }
 
-  return (
-    <div id="header" style={S.root}>
-      <div style={S.container}>
-        {links.map(link =>
-          <RadiumLink to={link} style={S.link} activeStyle={S.linkActive}>
-            <i className={`fa fa-${icons[link]}`} /> <span style={S.text}>{link}</span>
-          </RadiumLink>
+    @media print {
+      :host {
+        display: none;
+      }
+    }
+
+    .container {
+      display: flex;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    img {
+      filter: invert(0.6);
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+
+    a {
+      flex-grow: 1;
+      display: inline-block;
+      text-transform: capitalize;
+      text-decoration: none;
+      color: ${colors.header.link};
+      vertical-align: middle;
+      font-size: 11pt;
+    }
+    
+    a:hover, a.active {
+      color: ${colors.header.text};
+      border-bottom: none;
+    }
+
+    a:hover img, a.active img {
+      filter: invert(1);
+    }
+
+    @media (max-width: 600px) {
+        font-size: 12pt;
+    }
+
+    span {
+      vertical-align: middle;  
+    }
+
+    @media (max-width: 600px) {
+      span {
+        display: none;
+      }
+    }
+    `;
+  }
+
+  constructor () {
+    super();
+    window.addEventListener('hashchange', () => {
+      this.requestUpdate();
+    }, false);
+  }
+
+  render () {
+    const links = ['about', 'experience', 'skills', 'education', 'projects', 'resume'];
+    const page = location.hash.replace('#', '');
+
+    return html`
+    <div>
+      <div class="container">
+        ${links.map(link =>
+          html`<a href="#${link}" class=${page === link ? 'active' : ''}>
+            <img src="images/${link}.svg"> <span>${link}</span>
+          </a>`
         )}
       </div>
     </div>
-  );
-};
+    `;
+  }
+}
 
-export default Radium(Header);
+customElements.define('r-header', Header);

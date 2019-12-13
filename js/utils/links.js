@@ -6,6 +6,7 @@ const links = {
   'Jaypee Institute of Information Technology': 'https://en.wikipedia.org/wiki/Jaypee_Institute_of_Information_Technology',
   'Florida Museum of Natural History': 'http://www.flmnh.ufl.edu/',
   'New Delhi': 'https://en.wikipedia.org/wiki/New_Delhi',
+  projects: '#projects',
 
   // People
   'Saoli Mitra': 'https://www.linkedin.com/in/saoli-mitra-10649422',
@@ -20,7 +21,7 @@ const links = {
   CSS: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
   JavaScript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   React: 'http://facebook.github.io/react/',
-  'React Native': 'https://facebook.github.io/react-native/',
+  LitElement: 'https://lit-element.polymer-project.org/',
   'Dojo Toolkit': 'https://dojotoolkit.org/',
   Stylus: 'http://stylus-lang.com/',
   Autoprefixer: 'https://autoprefixer.github.io/',
@@ -32,7 +33,12 @@ const links = {
   webpack: 'https://webpack.github.io/',
   ESLint: 'http://eslint.org/',
   Arduino: 'https://www.arduino.cc/',
-  'Raspberry Pi': 'https://www.raspberrypi.org/'
+  'Raspberry Pi': 'https://www.raspberrypi.org/',
+
+  // Resume
+  'https://rajatsehgal.github.io': 'https://rajatsehgal.github.io',
+  'rajatsehgal1988@gmail.com': 'mailto:rajatsehgal1988@gmail.com',
+  '508-246-7658': 'tel:508-246-7658'
 };
 
 export default links;

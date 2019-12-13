@@ -1,31 +1,36 @@
-import React, { PropTypes } from 'react';
-import Radium from 'radium';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
 
-const S = {
-  root: {
-    paddingTop: 5,
-    paddingBottom: 5
-  },
-  icon: {
-    height: 24,
-    width: 24,
-    marginRight: 5,
-    verticalAlign: 'middle'
+class SkillBar extends LitElement {
+  static get properties () {
+    return {
+      skills: { type: Array }
+    };
   }
-};
 
-const SkillBar = ({ skills = [] }) => (
-  <div style={S.root}>
-    {
-      skills.map(skill =>
-        <img role="presentation" style={S.icon} key={skill} title={skill} src={`images/${skill}.png`} />
-      )
+  static get styles () {
+    return css`
+    :host {
+      display: var(--resume-mode, block);
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
-  </div>
-);
 
-SkillBar.propTypes = {
-  skills: PropTypes.arrayOf(PropTypes.string)
-};
+    img {
+      height: 24px;
+      width: 24px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    `;
+  }
 
-export default Radium(SkillBar);
+  render () {
+    return html`
+      <div>
+        ${this.skills.map(skill => html`<img role="presentation" title=${skill} src="images/${skill}.png">`)}
+      </div>
+    `;
+  }
+}
+
+customElements.define('skill-bar', SkillBar);
