@@ -1,11 +1,52 @@
-import React, { PropTypes } from 'react';
-import links from '../utils/links';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import links from '../utils/links.js';
+import colors from '../utils/colors.js';
 
-const Link = ({ children }) =>
-  <a rel="noopener noreferrer" target="_blank" href={links[children]}>{children}</a>;
+class Link extends LitElement {
+  static get properties () {
+    return {
+      text: { type: String }
+    };
+  }
 
-Link.propTypes = {
-  children: PropTypes.string
-};
+  static get styles () {
+    return css`
+    :host {
+      margin: 15px 0;
+    }
 
-export default Link;
+    a {
+      text-decoration: none;
+      color: ${colors.link};
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      border-bottom-color: rgb(0, 132, 187);
+    }
+
+    @media screen {
+        a {
+          color: rgb(0, 132, 187);
+        }
+    }
+    
+    @media print {
+      a {
+        color: inherit;        
+        border-bottom: none;
+      }
+  
+      @page {
+        margin: 0
+      }
+    }
+    `;
+  }
+
+  render () {
+    return html`<a rel="noopener noreferrer" target="_blank" href="${links[this.text]}">${this.text}</a>`;
+  }
+}
+
+customElements.define('r-link', Link);

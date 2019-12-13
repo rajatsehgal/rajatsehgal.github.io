@@ -1,68 +1,78 @@
-import React, { PropTypes } from 'react';
-import Radium from 'radium';
-import colors from '../utils/colors';
-import Carousel from './Carousel';
-import SkillBar from './SkillBar';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import colors from '../utils/colors.js';
+import './Carousel.js';
+import './SkillBar.js';
 
-const S = {
-  title: {
-    fontSize: '12pt',
-    fontWeight: 'bold',
-    textTransform: 'capitalize'
-  },
-  subTitle: {
-    color: colors.muted
-  },
-  carouselContainer: {
-    textAlign: 'center',
-    marginTop: 5
-  },
-  link: {
-    fontSize: '11pt',
-    borderBottom: 'none',
-    textDecoration: 'none',
-    color: colors.link,
-    marginLeft: 10
+class Project extends LitElement {
+  static get properties () {
+    return {
+      name: { type: String },
+      subTitle: { type: String },
+      githubName: { type: String }
+    };
   }
-};
 
-const Project = ({ title, subTitle, description, images, skills, githubName, resumeMode }) => {
-  const link = githubName ? (<a
-    rel="noopener noreferrer"
-    target="_blank"
-    href={`https://github.com/rajatsehgal/${githubName}`}
-    style={[S.link, { display: resumeMode ? 'none' : null }]}
-  >
-    <i className={'fa fa-github'} />
-  </a>) : null;
-  return (
-    <div style={S.root}>
-      <div
-        id={title.replace(/\./g, '')}
-      />
-      <div><span style={S.title}>{title}</span>{link} - <span style={S.subTitle}>{subTitle}</span></div>
-      <div style={{ display: resumeMode ? 'none' : null }}>
-        <SkillBar skills={skills} />
+  static get styles () {
+    return css`
+    .name {
+      font-size: 12pt;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    .subTitle {
+      color: ${colors.muted}
+    }
+
+    img {
+      height: 16px;
+      width: 16px;
+      vertical-align: middle;
+    }
+
+    .carouselContainer {
+      text-align: center;
+      margin-top: 5px;
+      display: var(--resume-mode, block);
+    }
+
+    .link {
+      font-size: 11pt;
+      border-bottom: none;
+      text-decoration: none;
+      color: ${colors.link};
+    }
+
+    a {
+      display: var(--resume-mode, inline);
+    }
+
+    skill-bar, ::slotted(*) {
+      display: var(--resume-mode, block);
+    }
+    `;
+  }
+
+  render () {
+    const link = this.githubName ? html`<a
+      rel="noopener noreferrer"
+      target="_blank"
+      href="https://github.com/rajatsehgal/${this.githubName}"
+      class="link"
+    >
+      <img src="images/github.svg">
+    </a>` : null;
+
+    return html`
+    <div>
+      <div id="${this.name.replace(/\./g, '')}"></div>
+      <div>
+        <span class="name">${this.name}</span>${link} - <span class="subTitle">${this.subTitle}</span>
       </div>
-      <div>{description.text.join(' ')}</div>
-      <div style={[S.carouselContainer, { display: resumeMode ? 'none' : null }]}>
-        <Carousel items={images.list} initialIndex={images.initialIndex} />
-      </div>
+      <slot></slot>
     </div>
-  );
-};
+    `;
+  }
+}
 
-Project.propTypes = {
-  title: PropTypes.string,
-  subTitle: PropTypes.string,
-  description: PropTypes.string,
-  images: PropTypes.arrayOf(PropTypes.shape({
-    list: PropTypes.arrayOf(PropTypes.string),
-    initialIndex: PropTypes.number
-  })),
-  skills: PropTypes.arrayOf(PropTypes.string),
-  githubName: PropTypes.string,
-  resumeMode: PropTypes.bool
-};
-
-export default Radium(Project);
+customElements.define('r-project', Project);

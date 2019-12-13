@@ -11,29 +11,3 @@ body {
     padding: 0;
     margin: 0;
 }
-
-a {
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-}
-
-a:hover {
-    border-bottom-color: rgb(0, 132, 187);
-}
-
-@media screen {
-    a {
-        color: rgb(0, 132, 187);
-    }
-}
-
-@media print {
-    a {
-        color: inherit;        
-        border-bottom: none;
-    }
-
-    @page {
-        margin: 0
-    }
-}

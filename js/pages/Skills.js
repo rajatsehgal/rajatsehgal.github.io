@@ -1,58 +1,45 @@
-import React, { PropTypes } from 'react';
-import Radium from 'radium';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import '../components/SkillSet.js';
+import '../components/Skill.js';
 
-import colors from '../utils/colors';
-import links from '../utils/links';
-
-import me from '../../me.json';
-
-const S = {
-  name: {
-    color: colors.muted,
-    fontWeight: 'bold'
-  },
-  icon: {
-    width: 24,
-    height: 24,
-    verticalAlign: 'middle',
-    marginRight: 3
-  },
-  link: {
-    verticalAlign: 'middle',
-  },
-  skill: {
-    display: 'inline-block',
-    marginTop: 2
+class Skills extends LitElement {
+  static get styles () {
+    return css`
+      skill-set+skill-set {
+        margin-top: var(--resume-mode-margin, 15px);
+      }
+    `;
   }
-};
 
-const Skills = ({ resumeMode }) => (
-  <div>
-    {me.skillGroups.map((skillGroup, i) =>
-      <div key={skillGroup.name} style={{ marginTop: !resumeMode && i > 0 ? 15 : 0 }}>
-        <div style={[S.name, resumeMode ? { display: 'inline', verticalAlign: 'middle' } : {}]}>{skillGroup.name}: </div>
-        {
-          skillGroup.list.map((skill, j) =>
-            <div
-              key={skill}
-              style={[S.skill, { marginRight: resumeMode ? 2 : 15 }]}
-            >
-              <img
-                role="presentation"
-                style={[S.icon, resumeMode ? { display: 'none' } : {}]}
-                src={`images/${skill}.png`}
-              /><a style={S.link} rel="noopener noreferrer" target="_blank" href={links[skill]}>{skill}</a>
-              {j < skillGroup.list.length - 1 ? <span style={{ display: resumeMode ? null : 'none' }}>,</span> : null}
-            </div>
-          )
-        }
-      </div>
-    )}
-  </div>
-);
+  render () {
+    return html`
+      <skill-set name="Languages">
+        <r-skill name="HTML"></r-skill>
+        <r-skill name="CSS"></r-skill>
+        <r-skill name="JavaScript"></r-skill>
+      </skill-set>
+      <skill-set name="Frameworks">
+        <r-skill name="LitElement"></r-skill>
+        <r-skill name="Dojo"></r-skill>
+        <r-skill name="React"></r-skill>
+      </skill-set>
+      <skill-set name="Backend">
+        <r-skill name="Node.js"></r-skill>
+        <r-skill name="Express"></r-skill>
+        <r-skill name="MongoDB"></r-skill>
+      </skill-set>
+      <skill-set name="Tooling">
+        <r-skill name="npm"></r-skill>
+        <r-skill name="Babel"></r-skill>
+        <r-skill name="webpack"></r-skill>
+        <r-skill name="ESLint"></r-skill>
+      </skill-set>
+      <skill-set name="Hardware">
+        <r-skill name="Arduino"></r-skill>
+        <r-skill name="Raspberry Pi"></r-skill>
+      </skill-set>
+    `;
+  }
+}
 
-Skills.propTypes = {
-  resumeMode: PropTypes.bool
-};
-
-export default Radium(Skills);
+customElements.define('r-skills', Skills);

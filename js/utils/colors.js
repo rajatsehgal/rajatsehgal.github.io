@@ -1,8 +1,10 @@
-const charcoal = '#333';
-const charcoalTranslucent = 'rgba(51, 51, 51, 0.3)';
-const white = '#eee';
-const grey = '#888';
-const blue = 'rgb(0, 132, 187)';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+
+const charcoal = css`#333`;
+const charcoalTranslucent = css`rgba(51, 51, 51, 0.3)`;
+const white = css`#eee`;
+const grey = css`#888`;
+const blue = css`rgb(0, 132, 187)`;
 
 const colors = {
   header: {

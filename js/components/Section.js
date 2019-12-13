@@ -1,48 +1,65 @@
-import React, { PropTypes } from 'react';
-import Radium from 'radium';
-import colors from '../utils/colors';
-import icons from '../utils/icons';
+import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import colors from '../utils/colors.js';
 
-const S = {
-  title: {
-    fontSize: '13pt',
-    textTransform: 'capitalize',
-    margin: '30px 0 10px 0'
-  },
-  subTitle: {
-    fontSize: '12pt',
-    color: colors.muted
-  },
-  separator: {
-    borderBottom: `1px solid ${colors.muted}`,
-    margin: '40px 40px 30px 40px'
-  }
-};
-
-const Section = ({ title, subTitle, children, resumeMode }) => {
-  let subTitleNode;
-  if (subTitle) {
-    subTitleNode = (
-      <span style={S.subTitle}>- {subTitle}</span>
-    );
+class Section extends LitElement {
+  static get properties () {
+    return {
+      text: { type: String },
+      subTitle: { type: String }
+    };
   }
 
-  return (
-    <div>
-      <div style={S.title}>
-        <i className={`fa fa-${icons[title]}`} /> {title} {subTitleNode}
+  static get styles () {
+    return css`
+    :host {
+      display: block;
+      margin-top: var(--resume-mode-margin,60px);
+      margin-right: 0;
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+
+    .title {
+      font-size: 13pt;
+      text-transform: capitalize;
+      display: flex;
+    }
+    
+    .subTitle {
+      font-size: 12pt;
+      color: ${colors.muted};
+    }
+
+    .separator {
+      border-bottom: 1px solid ${colors.muted};
+      margin: 40px 40px 30px 40px;
+      display: var(--resume-mode, block);
+    }
+
+    img {
+      width: 18px;
+      height: 18px;
+      margin-right: 5px;
+    }
+    `;
+  }
+
+  render () {
+    let subTitleNode;
+    if (this.subTitle) {
+      subTitleNode = html`
+        <span class="subTitle">- ${this.subTitle}</span>
+      `;
+    }
+
+    return html`
+      <div class="title">
+        <img src="images/${this.text}.svg"> ${this.text} ${subTitleNode}
       </div>
-      {children}
-      <div style={[S.separator, { display: resumeMode ? 'none' : null }]} />
-    </div>
-  );
-};
+      <slot></slot>
+      <div class="separator"></div>
+    `;
+  }
+}
 
-Section.propTypes = {
-  title: PropTypes.string,
-  subTitle: PropTypes.string,
-  children: PropTypes.children,
-  resumeMode: PropTypes.bool
-};
-
-export default Radium(Section);
+customElements.define('r-section', Section);
