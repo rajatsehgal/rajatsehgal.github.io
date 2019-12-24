@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import { LitElement, html, css } from '../../web_modules/lit-element.js';
 import '../components/SkillBar.js';
 import '../components/Carousel.js';
 import '../components/Link.js';

@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'https://cdn.pika.dev/lit-element';
+import { LitElement, html, css } from '../../web_modules/lit-element.js';
 import icons from '../utils/icons.js';
 
 class Job extends LitElement {
