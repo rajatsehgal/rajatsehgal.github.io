@@ -23,8 +23,8 @@ class About extends LitElement {
       <img role="presentation" src="images/me-blur.jpg">
       <div>
         My name is <span title="Ruh-juht Sai-guhl"><strong>Rajat Sehgal</strong></span>, I am
-        a <strong>Senior Software Engineer</strong>, located in the <r-link text="Greater Boston"></r-link> area.
-        I have been working at <r-link text="MathWorks"></r-link> for more than 6 years now.
+        a <strong>Software Engineering Manager</strong>, located in the <r-link text="Greater Boston"></r-link> area.
+        I have been working at <r-link text="MathWorks"></r-link> for more than 9 years now.
         <br>
         Before that I was at <r-link text="University of Florida"></r-link>, where I completed
         my <strong>Masters</strong> in <strong>Computer Science</strong> while also working as a
